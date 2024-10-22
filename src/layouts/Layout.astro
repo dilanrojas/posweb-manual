@@ -1,0 +1,86 @@
+---
+interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="Astro description" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+	</head>
+	<body>
+		<slot />
+
+		<script src="https://kit.fontawesome.com/92992ef526.js" crossorigin="anonymous"></script>
+	</body>
+</html>
+<style is:global>
+	* {
+		margin: 0;
+		padding: 0;
+	}
+
+	*, *::after, *::before {
+		box-sizing: border-box;
+	}
+
+	button, input, textarea {
+		border: 0;
+		outline: 0;
+		font-size: inherit;
+		font-family: inherit;
+		background-color: transparent;
+	}
+
+	button {
+		cursor: pointer;
+	}
+
+	h1, h2, h3, h4, h5, h6 {
+		line-height: 1;
+	}
+
+	html {
+		line-height: 1.2;
+		font-size: 16px;
+		font-family: Arial, Helvetica, sans-serif;
+	}
+
+	body {
+		display: grid;
+		align-items: center;
+		justify-content: center;
+		min-height: 100dvh;
+	}
+
+	ul, ol {
+		list-style-type: none;
+	}
+
+	@keyframes fadeOff {
+		from { opacity: 1 }
+		to { opacity: 0 }
+	}
+
+	@keyframes fadeIn {
+		from { opacity: 0 }
+		to { opacity: 1 }
+	}
+
+	/* Utility classes */
+	.container {
+		--width: 63em;
+		--padding: 1rem;
+
+		width: min(var(--width), 100% - (var(--padding) * 2));
+		margin-inline: auto;
+	}
+</style>
