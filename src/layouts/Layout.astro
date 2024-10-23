@@ -57,7 +57,6 @@ const { title } = Astro.props;
 	body {
 		display: grid;
 		align-items: center;
-		justify-content: center;
 		min-height: 100dvh;
 	}
 
@@ -77,10 +76,11 @@ const { title } = Astro.props;
 
 	/* Utility classes */
 	.container {
-		--width: 63em;
+		--width: 55em;
 		--padding: 1rem;
 
 		width: min(var(--width), 100% - (var(--padding) * 2));
 		margin-inline: auto;
 	}
+
 </style>

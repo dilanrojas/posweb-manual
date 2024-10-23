@@ -86,7 +86,13 @@
 	}
 
 	.step-img {
-		width: 100%;
+    width: 100%;
+    object-fit: contain;
+
+    &.on-fullscreen {
+      width: 100%;
+      height: 100dvh;
+    }
 	}
 
 	.controls {
@@ -177,6 +183,7 @@
   const prevBtn = $('.prev-btn')
   const backgroundMsc = $('.background-music')
   const playerControls = $('.controls')
+  const steps = $$('.step-img')
   // const volumeBar = $('.volume-bar')
   const volumeBtnIcon = volumeBtn.querySelector("i")
   const lensBtn = $('.magnifying-glass-btn')
@@ -255,6 +262,20 @@
       document.exitFullscreen()
     }
   })
+
+  const handleFullscreen = () => {
+    if (document.fullscreenElement) {
+      steps.forEach(step => {
+        step.classList.add("on-fullscreen")
+      })
+    } else {
+      steps.forEach(step => {
+        step.classList.remove("on-fullscreen")
+      })
+    }
+  }
+
+  document.addEventListener("fullscreenchange", handleFullscreen)
 
   const playBtnIcon = playBtn.querySelector("i")
   playBtn.addEventListener("click", () => {
